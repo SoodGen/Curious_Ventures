@@ -25,15 +25,9 @@
         /* Hype Grain Effect */
         .grain::before {
             content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            opacity: 0.05;
-            pointer-events: none;
-            z-index: 9999;
+            opacity: 0.05; pointer-events: none; z-index: 9999;
         }
 
         .text-huge {
@@ -62,7 +56,6 @@
             text-transform: uppercase;
         }
 
-        /* Hype-style Grid & Borders */
         .hype-border { border: 1px solid var(--border); }
         .hype-border-b { border-bottom: 1px solid var(--border); }
         .hype-border-r { border-right: solid 1px var(--border); }
@@ -78,7 +71,6 @@
             transform: translateY(0);
         }
 
-        /* Blueprint Utility Grid Styles */
         .utility-box {
             position: relative;
             background: transparent;
@@ -91,59 +83,32 @@
         .utility-box::before {
             content: '';
             position: absolute;
-            top: -100%;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: -100%; left: 0; width: 100%; height: 100%;
             background: var(--accent);
             transition: top 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            z-index: 0;
-            opacity: 0.1;
+            z-index: 0; opacity: 0.1;
         }
-        .utility-box:hover::before {
-            top: 0;
-        }
+        .utility-box:hover::before { top: 0; }
 
-        /* CTA Card Interactivity */
         .cta-card {
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
+            position: relative; overflow: hidden;
         }
-        
-        .cta-card:hover {
-            background-color: var(--fg);
-            color: var(--bg);
-        }
-
-        .cta-card:hover .mono-tag {
-            color: var(--accent);
-        }
-
-        .cta-card:hover .arrow-icon {
-            transform: translate(5px, -5px);
-        }
+        .cta-card:hover { background-color: var(--fg); color: var(--bg); }
+        .cta-card:hover .mono-tag { color: var(--accent); }
+        .cta-card:hover .arrow-icon { transform: translate(5px, -5px); }
 
         .node-circle {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--accent);
-            display: inline-block;
-            margin-right: 8px;
+            width: 12px; height: 12px; border-radius: 50%;
+            background: var(--accent); display: inline-block; margin-right: 8px;
             box-shadow: 0 0 15px var(--accent);
         }
 
-        /* Ticker Animation */
-        .ticker-container {
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-        }
-
+        .ticker-container { overflow: hidden; width: 100%; position: relative; }
         .ticker-content {
-            display: inline-block;
-            animation: ticker 40s linear infinite;
+            display: flex; width: max-content;
+            animation: ticker 32s linear infinite;
+            padding-bottom: 1.25rem;
         }
 
         @keyframes ticker {
@@ -151,65 +116,34 @@
             100% { transform: translateX(-50%); }
         }
 
-        /* Memo Specific Styles */
         .memo-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
-            font-size: 0.8rem;
+            width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 0.8rem;
         }
-        .memo-table th, .memo-table td {
-            text-align: left;
-            padding: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-        .memo-table th {
-            color: rgba(255,255,255,0.4);
-            font-family: 'JetBrains Mono', monospace;
-            text-transform: uppercase;
-            font-size: 0.65rem;
-        }
+        .memo-table th, .memo-table td { text-align: left; padding: 1rem; border-bottom: 1px solid var(--border); }
+        .memo-table th { color: rgba(255,255,255,0.4); font-family: 'JetBrains Mono', monospace; text-transform: uppercase; font-size: 0.65rem; }
 
-        /* Modal Styles */
         #pitchModal, #thesisGateModal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.95);
-            z-index: 2000;
-            backdrop-filter: blur(15px);
-            align-items: center;
-            justify-content: center;
-            padding: 1.5rem;
+            display: none; position: fixed; inset: 0;
+            background: rgba(0,0,0,0.95); z-index: 2000;
+            backdrop-filter: blur(15px); align-items: center; justify-content: center; padding: 1.5rem;
         }
-
         #pitchModal.active, #thesisGateModal.active { display: flex; }
 
         .modal-content {
-            background: #0a0a0a;
-            border: 1px solid var(--border);
-            width: 100%;
-            max-width: 500px;
-            padding: 3.5rem;
-            position: relative;
+            background: #0a0a0a; border: 1px solid var(--border);
+            width: 100%; max-width: 500px; padding: 3.5rem; position: relative;
         }
 
         .form-step { display: none; }
         .form-step.active { display: block; }
 
         .modal-input {
-            background: transparent;
-            border-bottom: 1px solid var(--border);
-            width: 100%;
-            padding: 1rem 0;
-            color: white;
-            outline: none;
-            transition: border-color 0.3s;
-            font-size: 0.9rem;
+            background: transparent; border-bottom: 1px solid var(--border);
+            width: 100%; padding: 1rem 0; color: white; outline: none;
+            transition: border-color 0.3s; font-size: 0.9rem;
         }
         .modal-input:focus { border-color: var(--accent); }
 
-        /* Navigation Links */
         .nav-link:hover { color: var(--accent); }
         .grid-item { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
         
@@ -230,7 +164,7 @@
                 <div class="font-black text-2xl tracking-tighter leading-none">CURIOUS VENTURES.</div>
                 <div class="space-x-10 mono font-bold hidden md:flex items-center">
                     <a href="javascript:void(0)" onclick="gateThesis()" class="nav-link transition">Thesis</a>
-                    <a href="javascript:void(0)" onclick="showView('archipelago')" class="nav-link transition">Archipelago</a>
+                    <a href="javascript:void(0)" onclick="navigateTo('archipelago')" class="nav-link transition">Archipelago</a>
                     <button onclick="toggleModal(true)" class="bg-white text-black px-6 py-2 rounded-full hover:bg-indigo-600 hover:text-white transition">Pitch</button>
                 </div>
                 <div class="md:hidden mono font-bold text-[10px]">MENU</div>
@@ -245,7 +179,7 @@
                 </div>
                 <h1 class="text-huge mb-16 reveal">DISTRIBUTION<br><span class="text-stroke">IS THE ONLY</span><br>MOAT.</h1>
                 <div class="grid md:grid-cols-12 gap-10 reveal">
-                    <div class="md:col-span-7"><p class="text-2xl md:text-4xl font-light leading-tight text-zinc-400">In a world where building is cheap, the <span class="text-white italic">Archipelago</span> is your unfair advantage. We don't just invest, we build with you.</p></div>
+                    <div class="md:col-span-7"><p class="text-2xl md:text-4xl font-light leading-tight text-zinc-400"></p></div>
                     <div class="md:col-span-5 flex flex-col items-start md:items-end justify-end"><a href="javascript:void(0)" onclick="gateThesis()" class="group flex items-center gap-6 text-sm mono font-black">READ THE INTERNAL MEMO<div class="w-12 h-12 hype-border rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">↓</div></a></div>
                 </div>
             </div>
@@ -255,7 +189,7 @@
             <div class="max-w-[1440px] mx-auto">
                 <div class="grid md:grid-cols-12 hype-border border-t-0">
                     <div class="md:col-span-4 p-8 md:p-12 hype-border-r hype-border-b reveal">
-                        <div><div class="mono text-zinc-500 mb-2">Subject</div><p class="text-3xl font-black leading-none">Building Exposure Across the <br>New Consumer Stack.</p></div>
+                        <div><div class="mono text-zinc-500 mb-2">Subject</div><p class="text-3xl font-black leading-none">Building Exposure Across the <br>New Consumer Stack</p></div>
                         <div class="mt-8 mono text-[10px] opacity-20">Owning the Distribution Moat.</div>
                     </div>
                     <div class="md:col-span-8 p-8 md:p-12 hype-border-b reveal grid-item">
@@ -277,7 +211,7 @@
                         <div class="mono text-zinc-500 mb-6">04 / The Archipelago</div>
                         <div class="flex flex-wrap gap-4 mb-8"><span class="px-3 py-1 hype-border rounded-full mono text-[9px]">India Nodes</span><span class="px-3 py-1 hype-border rounded-full mono text-[9px]">Dubai Crypto Oasis</span><span class="px-3 py-1 hype-border rounded-full mono text-[9px]">SEA Hubs</span></div>
                         <p class="text-lg md:text-xl text-zinc-300">Partnering with global online-native communities to assemble a network of networks.</p>
-                        <a href="javascript:void(0)" onclick="showView('archipelago')" class="mt-6 inline-block mono text-[10px] text-zinc-500 hover:text-white transition">Know More ↗</a>
+                        <a href="javascript:void(0)" onclick="navigateTo('archipelago')" class="mt-6 inline-block mono text-[10px] text-zinc-500 hover:text-white transition">Know More ↗</a>
                     </div>
                     <div class="md:col-span-12 border-t border-white/10 grid lg:grid-cols-2 reveal">
                         <div class="p-12 md:p-20 hype-border-r bg-white/[0.01] flex flex-col justify-center">
@@ -286,22 +220,53 @@
                             <div class="flex flex-wrap gap-6 mono opacity-40"><span>→ First Call Advantage</span><span>→ Cross-Border Pipeline</span><span>→ Network State Nodes</span></div>
                         </div>
                         <div class="grid md:grid-cols-2">
-                            <div class="utility-box group"><h4 class="text-2xl font-black mt-8 mb-4 text-white transition">DISTRIBUTION</h4><p class="text-xs text-zinc-500 uppercase mono tracking-widest">Kickstart your growth with access to thousands of users across our communities.</p></div>
-                            <div class="utility-box group"><h4 class="text-2xl font-black mt-8 mb-4 text-white transition">TRACTION</h4><p class="text-xs text-zinc-500 uppercase mono tracking-widest">Engage with early adopters who provide feedback, advocacy and energy.</p></div>
-                            <div class="utility-box group"><h4 class="text-2xl font-black mt-8 mb-4 text-white transition">AMPLIFICATION</h4><p class="text-xs text-zinc-500 uppercase mono tracking-widest">Build credibility through curated content, podcasts and events.</p></div>
-                            <div class="utility-box group border-b-0 md:border-b lg:border-b-0"><h4 class="text-2xl font-black mt-8 mb-4 text-white transition">NETWORK</h4><p class="text-xs text-zinc-500 uppercase mono tracking-widest">Get connected to follow-on investors and industry partners through our network.</p></div>
+                            <div class="utility-box group"><h4 class="text-2xl font-black mt-8 mb-4 text-white transition italic">DISTRIBUTION</h4><p class="text-xs text-zinc-500 uppercase mono tracking-widest">Kickstart your growth with access to thousands of users across our communities.</p></div>
+                            <div class="utility-box group"><h4 class="text-2xl font-black mt-8 mb-4 text-white transition italic">TRACTION</h4><p class="text-xs text-zinc-500 uppercase mono tracking-widest">Engage with early adopters who provide feedback, advocacy and energy.</p></div>
+                            <div class="utility-box group"><h4 class="text-2xl font-black mt-8 mb-4 text-white transition italic">AMPLIFICATION</h4><p class="text-xs text-zinc-500 uppercase mono tracking-widest">Build credibility through curated content, podcasts and events.</p></div>
+                            <div class="utility-box group border-b-0 md:border-b lg:border-b-0"><h4 class="text-2xl font-black mt-8 mb-4 text-white transition italic">NETWORK</h4><p class="text-xs text-zinc-500 uppercase mono tracking-widest">Get connected to follow-on investors and industry partners through our network.</p></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="py-16 border-t border-white/10 bg-[#050505] overflow-hidden">
-            <div class="ticker-container"><div class="ticker-content flex gap-16 md:gap-32 items-center"><span class="text-4xl md:text-7xl font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap cursor-default">Jungle_Ventures</span><span class="text-4xl md:text-7xl font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap cursor-default">Pukecast</span><span class="text-4xl md:text-7xl font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap cursor-default">TheArcWeb</span><span class="text-4xl md:text-7xl font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap cursor-default">Hadron Founders Club</span><span class="text-4xl md:text-7xl font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap cursor-default">Artsdao.io</span><span class="text-4xl md:text-7xl font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap cursor-default">NETWORK SCHOOL</span><span class="text-4xl md:text-7xl font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap cursor-default">FOUNDERSHIP_HQ</span><span class="text-4xl md:text-7xl font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap cursor-default">Jungle_Ventures</span><span class="text-4xl md:text-7xl font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap cursor-default">Pukecast</span></div></div>
+        <!-- Moving Partners Banner - Reduced by another 10%, Gap reduced by 25% -->
+        <section class="py-8 border-t border-white/10 bg-[#050505] overflow-hidden">
+            <div class="max-w-[1440px] mx-auto px-6 mb-6">
+                <div class="mono text-[10px] opacity-40 tracking-[0.2em] uppercase">High-Trust Distribution Nodes</div>
+            </div>
+            <div class="ticker-container">
+                <div class="ticker-content">
+                    <!-- Original Set - Gaps reduced to gap-14 and gap-28 -->
+                    <div class="flex gap-14 md:gap-28 items-center pr-14 md:pr-28">
+                        <span class="text-[30px] md:text-[48px] font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap leading-none cursor-default uppercase">Memeland</span>
+                        <span class="text-[30px] md:text-[48px] font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap leading-none cursor-default uppercase">Jungle Ventures</span>
+                        <span class="text-[30px] md:text-[48px] font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap leading-none cursor-default uppercase">Pukecast</span>
+                        <span class="text-[30px] md:text-[48px] font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap leading-none cursor-default uppercase">TheArcWeb</span>
+                        <span class="text-[30px] md:text-[48px] font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap leading-none cursor-default uppercase">Hadron Founders Club</span>
+                        <span class="text-[30px] md:text-[48px] font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap leading-none cursor-default uppercase">Artsdao.io</span>
+                        <span class="text-[30px] md:text-[48px] font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap leading-none cursor-default uppercase">NETWORK SCHOOL</span>
+                        <span class="text-[30px] md:text-[48px] font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap leading-none cursor-default uppercase">FOUNDERSHIP_HQ</span>
+                        <span class="text-[30px] md:text-[48px] font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap leading-none cursor-default uppercase">Pivot</span>
+                    </div>
+                    <!-- Identical Clone for Seamlessness -->
+                    <div class="flex gap-14 md:gap-28 items-center pr-14 md:pr-28">
+                        <span class="text-[30px] md:text-[48px] font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap leading-none cursor-default uppercase">Memeland</span>
+                        <span class="text-[30px] md:text-[48px] font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap leading-none cursor-default uppercase">Jungle Ventures</span>
+                        <span class="text-[30px] md:text-[48px] font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap leading-none cursor-default uppercase">Pukecast</span>
+                        <span class="text-[30px] md:text-[48px] font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap leading-none cursor-default uppercase">TheArcWeb</span>
+                        <span class="text-[30px] md:text-[48px] font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap leading-none cursor-default uppercase">Hadron Founders Club</span>
+                        <span class="text-[30px] md:text-[48px] font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap leading-none cursor-default uppercase">Artsdao.io</span>
+                        <span class="text-[30px] md:text-[48px] font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap leading-none cursor-default uppercase">NETWORK SCHOOL</span>
+                        <span class="text-[30px] md:text-[48px] font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap leading-none cursor-default uppercase">FOUNDERSHIP_HQ</span>
+                        <span class="text-[30px] md:text-[48px] font-black opacity-10 hover:opacity-100 hover:text-indigo-500 transition-all duration-500 whitespace-nowrap leading-none cursor-default uppercase">Pivot</span>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <footer id="signals" class="py-40 px-6 border-t border-white/10 bg-[#080808]">
-            <div class="max-w-[1440px] mx-auto"><div class="grid lg:grid-cols-2 gap-24"><div class="reveal"><h2 class="text-huge text-white mb-10">PITCH.</h2><p class="text-xl text-zinc-500 mb-12 max-w-sm">Ashish Sood - General Partner<br>Curious Ventures.</p><button onclick="showView('archipelago')" class="inline-block px-14 py-6 bg-white text-black font-black text-xl rounded-full hover:bg-indigo-600 hover:text-white transition-all transform hover:scale-105">Join the Archipelago</button></div><div class="flex flex-col justify-between"><div class="grid md:grid-cols-2 gap-16 reveal"><div><div class="mono text-zinc-600 mb-8">External Signals</div><div class="space-y-6"><a href="#" class="block text-2xl font-black hover:text-indigo-500 transition">Archipelago Pod<span class="mono text-[10px] ml-4 opacity-30">YT ↗</span></a><a href="https://soodgen.substack.com/" target="_blank" class="block text-2xl font-black hover:text-indigo-500 transition">Curious Journal<span class="mono text-[10px] ml-4 opacity-30">SUB ↗</span></a></div></div><div><div class="mono text-zinc-600 mb-8">Connect</div><div class="space-y-4 font-bold text-sm uppercase tracking-widest"><a href="https://x.com/SoodGen" target="_blank" class="block hover:text-indigo-500 transition">Twitter / X</a><a href="https://www.linkedin.com/in/ashish-sood-65051911b/" target="_blank" class="block hover:text-indigo-500 transition">LinkedIn</a></div></div></div><div class="mt-32 pt-10 border-t border-white/5 flex justify-between items-center mono text-[9px] opacity-30"><div>© 2026 CURIOUS VENTURES LP</div><div>ALL SIGNAL. NO NOISE.</div></div></div></div></div>
+            <div class="max-w-[1440px] mx-auto"><div class="grid lg:grid-cols-2 gap-24"><div class="reveal"><h2 class="text-huge text-white mb-10">PITCH.</h2><p class="text-xl text-zinc-500 mb-12 max-w-sm">Ashish Sood - General Partner<br>Curious Ventures.</p><button onclick="navigateTo('archipelago')" class="inline-block px-14 py-6 bg-white text-black font-black text-xl rounded-full hover:bg-indigo-600 hover:text-white transition-all transform hover:scale-105">Join the Archipelago</button></div><div class="flex flex-col justify-between"><div class="grid md:grid-cols-2 gap-16 reveal"><div><div class="mono text-zinc-600 mb-8">External Signals</div><div class="space-y-6"><a href="#" class="block text-2xl font-black hover:text-indigo-500 transition">Archipelago Pod<span class="mono text-[10px] ml-4 opacity-30">YT ↗</span></a><a href="https://soodgen.substack.com/" target="_blank" class="block text-2xl font-black hover:text-indigo-500 transition">Curious Journal<span class="mono text-[10px] ml-4 opacity-30">SUB ↗</span></a></div></div><div><div class="mono text-zinc-600 mb-8">Connect</div><div class="space-y-4 font-bold text-sm uppercase tracking-widest"><a href="https://x.com/SoodGen" target="_blank" class="block hover:text-indigo-500 transition">Twitter / X</a><a href="https://www.linkedin.com/in/ashish-sood-65051911b/" target="_blank" class="block hover:text-indigo-500 transition">LinkedIn</a></div></div></div><div class="mt-32 pt-10 border-t border-white/5 flex justify-between items-center mono text-[9px] opacity-30"><div>© 2026 CURIOUS VENTURES LP</div><div>ALL SIGNAL. NO NOISE.</div></div></div></div></div>
         </footer>
     </div>
 
@@ -309,7 +274,7 @@
     <div id="thesis-view" style="display: none;">
         <nav class="fixed top-0 w-full z-[1001] hype-border-b bg-[#050505]/90 backdrop-blur-md">
             <div class="max-w-[1440px] mx-auto flex justify-between items-center px-6 py-4">
-                <a href="javascript:void(0)" onclick="showView('landing')" class="group flex items-center gap-2"><span class="mono font-bold group-hover:text-indigo-500 transition">← Back</span></a>
+                <a href="javascript:void(0)" onclick="navigateTo('landing')" class="group flex items-center gap-2"><span class="mono font-bold group-hover:text-indigo-500 transition">← Back</span></a>
                 <div class="font-white uppercase tracking-widest mono text-[10px] opacity-40">Thesis / Memo v1.0</div>
                 <button onclick="toggleModal(true)" class="bg-white text-black px-6 py-2 rounded-full hover:bg-indigo-600 hover:text-white transition mono font-bold text-[10px]">Pitch Us</button>
             </div>
@@ -348,7 +313,7 @@
                                 <div class="md:col-span-4 mono text-zinc-500 uppercase">The AI Shift</div>
                                 <div class="md:col-span-8">
                                     <p class="text-xl text-zinc-300 font-bold mb-4">Search → Commanding</p>
-                                    <p class="text-zinc-400 leading-relaxed">Users no longer want to navigate menus, they expect software to act. We are moving from Chatbots to Large Action Models that execute complex tasks. The Agentic AI market is projected to grow from $5.25B in 2024 to ~$200B in 2034.</p>
+                                    <p class="text-zinc-400 leading-relaxed">Users no longer want to navigate menus, they expect software to act. We are moving from Chatbots to Large Action Models that execute complex tasks. The Agentic AI market is projected to reach ~$200B by 2034.</p>
                                 </div>
                             </div>
                             <div class="grid md:grid-cols-12 gap-10">
@@ -443,7 +408,7 @@
                     <!-- Track Record -->
                     <div class="memo-content">
                         <h3 class="mono text-xs mb-8 opacity-40">[ 05 / History ]</h3>
-                        <h4 class="text-4xl font-black mb-12 uppercase tracking-tight">Venture Wins</h4>
+                        <h4 class="text-4xl font-black mb-12 uppercase tracking-tight">Performance Signal</h4>
                         <div class="grid md:grid-cols-3 gap-8 mb-16">
                             <div class="p-8 hype-border">
                                 <div class="mono text-[9px] opacity-40 mb-2">CapX</div>
@@ -461,12 +426,12 @@
                                 <div class="mono text-[8px] opacity-20 mt-4">Current Value</div>
                             </div>
                         </div>
-                        <p class="mono text-[11px] text-indigo-500 text-center tracking-widest italic uppercase">Liquid returns: Turning <$75K into >$500K realized returns via field strategies.</p>
+                        <p class="mono text-[11px] text-indigo-500 text-center tracking-widest italic uppercase text-white">Liquid returns: Turning <$75K into >$500K realized returns via field strategies.</p>
                     </div>
 
                     <!-- Fund at a Glance -->
                     <div class="memo-content">
-                        <h3 class="mono text-xs mb-8 opacity-40">[ 06 / Fund Terminal ]</h3>
+                        <h3 class="mono text-xs mb-8 opacity-40">[ 06 / Fund terminal ]</h3>
                         <div class="space-y-20">
                             <div>
                                 <h5 class="text-2xl font-black mb-6">The Venture Fund</h5>
@@ -500,7 +465,7 @@
 
                     <!-- Closing -->
                     <div class="memo-content text-center py-20 border-t border-white/10">
-                        <h2 class="text-5xl md:text-7xl font-black mb-12 tracking-tighter italic uppercase">Build the <br>Future internet.</h2>
+                        <h2 class="text-5xl md:text-7xl font-black mb-12 tracking-tighter italic uppercase text-white">Stay curious.</h2>
                         <p class="text-xl text-zinc-500 max-w-2xl mx-auto mb-16">Legal structuring is finalizing. Capital deployment begins Q1 2026. Join us in building the next generation of the internet.</p>
                         <button onclick="toggleModal(true)" class="bg-white text-black px-12 py-6 rounded-full font-black text-xl hover:bg-indigo-600 hover:text-white transition-all transform hover:scale-105">Submit Transmission</button>
                     </div>
@@ -512,7 +477,7 @@
             <div class="max-w-4xl mx-auto flex justify-between items-center opacity-20 mono text-[9px]">
                 <div>© 2026 CURIOUS VENTURES LP</div>
                 <div class="flex gap-6">
-                    <a href="https://x.com/SoodGen" target="_blank" class="hover:text-white transition">X / Twitter</a>
+                    <a href="https://x.com/SoodGen" target="_blank" class="hover:text-white transition">Twitter / X</a>
                     <a href="https://www.linkedin.com/in/ashish-sood-65051911b/" target="_blank" class="hover:text-white transition">LinkedIn</a>
                 </div>
                 <div>END OF DOCUMENT</div>
@@ -524,7 +489,7 @@
     <div id="archipelago-view" style="display: none;">
         <nav class="fixed top-0 w-full z-[1001] hype-border-b bg-[#050505]/90 backdrop-blur-md">
             <div class="max-w-[1440px] mx-auto flex justify-between items-center px-6 py-4">
-                <a href="javascript:void(0)" onclick="showView('landing')" class="group flex items-center gap-2"><span class="mono font-bold group-hover:text-indigo-500 transition">← Back</span></a>
+                <a href="javascript:void(0)" onclick="navigateTo('landing')" class="group flex items-center gap-2"><span class="mono font-bold group-hover:text-indigo-500 transition">← Back</span></a>
                 <div class="font-white text-1xl lg:block uppercase tracking-widest mono text-[10px] opacity-40">The Archipelago</div>
                 <div class="flex items-center gap-6 md:gap-10">
                     <div class="w-px h-4 bg-white/10 hidden md:block"></div>
@@ -545,7 +510,7 @@
                 <div class="grid md:grid-cols-12 gap-10 reveal">
                     <div class="md:col-span-8">
                         <p class="text-2xl md:text-5xl font-light leading-tight text-zinc-300">
-                            The Archipelago is a decentralized network of <span class="italic text-white">high-trust nodes</span> communities, physical hubs, and digital states, that provide instant distribution for the next generation of founders.
+                            The Archipelago is a decentralized global network of <span class="italic text-white"></span> Communities, Physical hubs, and Digital states. 
                         </p>
                     </div>
                 </div>
@@ -556,19 +521,19 @@
             <div class="max-w-[1440px] mx-auto grid md:grid-cols-3 hype-border bg-white/[0.02]">
                 <div class="p-12 hype-border-r hype-border-b md:border-b-0 reveal">
                     <div class="mono text-zinc-500 mb-12 flex items-center"><span class="node-circle"></span> Node Theory</div>
-                    <h3 class="text-3xl font-black mb-6 leading-none">Permissionless <br>Access.</h3>
-                    <p class="text-zinc-400 leading-relaxed mb-8">Modern startups fail not because they can't build, but because they can't reach. We leverage sovereign communities across regions to seed products where energy is highest.</p>
+                    <h3 class="text-3xl font-black mb-6 leading-none">Permissionless <br>Access</h3>
+                    <p class="text-zinc-400 leading-relaxed mb-8">Modern startups fail not because they can't build it's but because they cannot distribute. We leverage sovereign communities across regions to seed products where energy is highest.</p>
                     <div class="mono text-[10px] opacity-30">Strategic Geography</div>
                 </div>
                 <div class="p-12 hype-border-r hype-border-b md:border-b-0 reveal" style="transition-delay: 0.1s">
                     <div class="mono text-zinc-500 mb-12 flex items-center"><span class="node-circle"></span> Trust Arbitrage</div>
-                    <h3 class="text-3xl font-black mb-6 leading-none">The Social <br>Moat.</h3>
+                    <h3 class="text-3xl font-black mb-6 leading-none">The Social <br>Moat</h3>
                     <p class="text-zinc-400 leading-relaxed mb-8">In an AI-saturated world, human curation is the ultimate premium. Our Archipelago is a filter, connecting high-integrity founders with high-conviction early adopters.</p>
                     <div class="mono text-[10px] opacity-30">Quality Filter</div>
                 </div>
                 <div class="p-12 reveal" style="transition-delay: 0.2s">
                     <div class="mono text-zinc-500 mb-12 flex items-center"><span class="node-circle"></span> Day Zero Traction</div>
-                    <h3 class="text-3xl font-black mb-6 leading-none">Distribution <br>Rails.</h3>
+                    <h3 class="text-3xl font-black mb-6 leading-none">Distribution <br>Rails</h3>
                     <p class="text-zinc-400 leading-relaxed mb-8">By the time Curious Ventures invests, the rails are already laid. We plug your product directly into our network of networks for immediate feedback and compounding growth.</p>
                     <div class="mono text-[10px] opacity-30">Growth Engine</div>
                 </div>
@@ -605,7 +570,7 @@
         <section class="py-40 px-6 bg-zinc-900/20 border-t border-white/10">
             <div class="max-w-[1440px] mx-auto">
                 <div class="mb-24 reveal">
-                    <h2 class="text-huge text-center">JOIN US.</h2>
+                    <h2 class="text-huge text-center text-white">JOIN US.</h2>
                     <p class="mono text-center text-indigo-500 mt-6">Select your entry point into the Archipelago</p>
                 </div>
                 <div class="grid md:grid-cols-2 gap-px bg-white/10 hype-border">
@@ -632,7 +597,7 @@
                     <a href="https://x.com/SoodGen" target="_blank" class="hover:text-white transition">Twitter / X</a>
                     <a href="https://www.linkedin.com/in/ashish-sood-65051911b/" target="_blank" class="hover:text-white transition">LinkedIn</a>
                 </div>
-                <div class="mono text-[10px] opacity-20">© 2026 ARCHIPELAGO FOUNDATION</div>
+                <div class="mono text-[10px] opacity-20">© 2026 Curious Ventures</div>
             </div>
         </footer>
     </div>
@@ -674,7 +639,28 @@
             runRevealObserver();
         }
 
+        function navigateTo(viewName) {
+            try {
+                window.location.hash = viewName === 'landing' ? '' : viewName;
+                showView(viewName);
+            } catch (e) {
+                showView(viewName);
+            }
+        }
+
+        window.onhashchange = function() { updateViewFromPath(); };
+
+        function updateViewFromPath() {
+            const hash = window.location.hash.replace('#', '');
+            if (hash === 'archipelago') showView('archipelago');
+            else if (hash === 'thesis') gateThesis();
+            else showView('landing');
+        }
+
+        window.onload = function() { updateViewFromPath(); };
+
         function gateThesis() {
+            window.location.hash = 'thesis';
             toggleThesisGate(true);
         }
 
@@ -692,14 +678,12 @@
         function unlockThesis() {
             const email = document.getElementById('gateEmail').value;
             const pass = document.getElementById('gatePass').value;
-            
             if (email && email.includes('@') && pass === 'Staycurious2026') {
                 toggleThesisGate(false);
                 showView('thesis');
             } else {
                 if (!email.includes('@')) document.getElementById('gateEmail').style.borderColor = 'red';
                 if (pass !== 'Staycurious2026') document.getElementById('gatePass').style.borderColor = 'red';
-                
                 setTimeout(() => {
                     document.getElementById('gateEmail').style.borderColor = '';
                     document.getElementById('gatePass').style.borderColor = '';
@@ -750,7 +734,10 @@
             const pModal = document.getElementById('pitchModal');
             const tModal = document.getElementById('thesisGateModal');
             if (event.target == pModal) toggleModal(false);
-            if (event.target == tModal) toggleThesisGate(false);
+            if (event.target == tModal) {
+                toggleThesisGate(false);
+                navigateTo('landing');
+            }
         }
     </script>
 </body>
